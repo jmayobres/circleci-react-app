@@ -5,6 +5,7 @@ jobs:
   build-and-test:
     docker:
       - image: "cimg/base:stable"
+    resource_class: small  
     steps:
       - checkout
       - restore_cache:
@@ -23,16 +24,3 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
-# workflows:
-#   push:
-#     jobs:
-#       - react/install
-#       - react/eslint:
-#           requires:
-#             - react/install
-#       - react/test:
-#           requires:
-#             - react/install
-#       - react/coverage:
-#           requires:
-#             - react/install
