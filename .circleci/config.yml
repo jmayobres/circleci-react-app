@@ -4,7 +4,7 @@ orbs:
 jobs:
   test:
     executor: node/default
-    working_directory: /home/circleci/project/client
+    working_directory: /home/circleci/project/client/
     steps:
       - checkout
       - node/install-packages:
