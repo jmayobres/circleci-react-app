@@ -11,6 +11,7 @@ jobs:
           app-dir: "/home/circleci/project/client"
           override-ci-command: npm install
       - run:
+          app-dir: "/home/circleci/project/client"
           command: |
             npm test
           name: Test
