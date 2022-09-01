@@ -4,7 +4,7 @@ orbs:
 jobs:
   test:
     executor: node/default
-    working_directory: ~/project/client
+    # working_directory: ~/project/client
     steps:
       - checkout
 
