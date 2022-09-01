@@ -35,9 +35,13 @@ jobs:
             - ./node_modules
       - run:
           name: Run Test Cases
-          command: npm test
+          command: |
+            mkdir -p ./test-results/junit
+            yarn test --ci --reporters=jest-junit
+      - store_artifacts:
+          path: ./test-results/junit
       - store_test_results:
-          path: /tmp/test-results
+          path: ./test-results
       - run:
           name: Run Test Coverage
           command: npm test -- --coverage
