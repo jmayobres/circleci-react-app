@@ -7,8 +7,8 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
-          cache-path: ~/project/client/node_modules
-          app-dir: "/home/circleci/project/client"
+          # cache-path: ~/project/client/node_modules
+          app-dir: "/home/circleci/project/server"
           override-ci-command: npm install
 workflows:
   test_my_app:
