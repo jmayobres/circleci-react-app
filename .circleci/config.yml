@@ -7,8 +7,9 @@ jobs:
     working_directory: /home/circleci/project/client/
     steps:
       - checkout
+          app-dir: "/home/circleci/project/client"
       - node/install-packages:
-          cache-path: ~/project/client/node_modules
+          # cache-path: ~/project/client/node_modules
           # app-dir: "/home/circleci/project/client"
           override-ci-command: npm install
       - run:
