@@ -7,23 +7,26 @@ jobs:
     # working_directory: ~/project/client
     steps:
       - checkout
-
       - node/install-packages:
-          # cache-path: ~/project/client/node_modules
+          cache-path: ~/project/client/node_modules
           app-dir: ~/project/client
           override-ci-command: npm install
       - run:
           path: ~/project/client
-          # app-dir: "/home/circleci/project/client"
           command: |
             npm test
           name: Test
       - run:
           path: ~/project/client
-          # app-dir: "/home/circleci/project/client"
           command: |
             npm test -- --coverage
           name: Test
+      - run:
+          path: ~/project/client
+          command: |
+            npm run build
+          name: build
+
 workflows:
   test_my_app:
     jobs:
