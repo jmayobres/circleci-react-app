@@ -1,11 +1,12 @@
 version: 2.1
 orbs:
   node: circleci/node@5.0.2
+  codecov: codecov/codecov@3.2.3
 jobs:
   build-and-test:
     docker:
       - image: "cimg/base:stable"
-    resource_class: small  
+    resource_class: small
     steps:
       - checkout
       - restore_cache:
@@ -24,3 +25,7 @@ workflows:
   build-and-test:
     jobs:
       - build-and-test
+  upload-to-codecov:
+    jobs:
+      - checkout
+      - codecov/upload
