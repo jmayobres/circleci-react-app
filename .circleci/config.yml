@@ -11,7 +11,6 @@ jobs:
           app-dir: "/home/circleci/project/client"
           override-ci-command: npm install
       - node/test:
-          override-ci-command: npm test
           app-dir: "/home/circleci/project/client"
           test-results-for: jest
 workflows:
