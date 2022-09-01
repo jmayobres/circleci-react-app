@@ -13,24 +13,17 @@ jobs:
           override-ci-command: npm install
       - run:
           path: ~/project/client
-          command: |
-            npm test
+          command: npm test
           name: Test
       - run:
           path: ~/project/client
-          command: |
-            npm test -- --coverage
-          name: Test
+          command: npm test -- --coverage
+          name: Coverage
       - run:
           path: ~/project/client
           command: |
             npm run build
           name: build
-      - store_artifacts:
-        path: /tmp/art-1
-        destination: artifact-file
-      - store_artifacts:
-        path: /tmp/artifacts
 
 workflows:
   test_my_app:
