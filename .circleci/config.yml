@@ -37,7 +37,7 @@ jobs:
           name: Run Test Cases
           command: |
             mkdir -p ./test-results/junit
-            yarn test --ci --reporters=jest-junit
+            npm test --ci --reporters=jest-junit
       - store_artifacts:
           path: ./test-results/junit
       - store_test_results:
