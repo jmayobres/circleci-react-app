@@ -10,9 +10,10 @@ jobs:
           cache-path: ~/project/client/node_modules
           app-dir: "/home/circleci/project/client"
           override-ci-command: npm install
-      - run: sudo npm install -g npm@latest
-      - run: npm run test
+      - node/test:
+          override-ci-command: npm test
           app-dir: "/home/circleci/project/client"
+          test-results-for: jest
 workflows:
   test_my_app:
     jobs:
