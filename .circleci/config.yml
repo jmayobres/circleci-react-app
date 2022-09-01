@@ -18,6 +18,12 @@ jobs:
           paths:
             - ./node_modules
       - run:
+          name: Run Test Cases
+          command: npm test
+      - run:
+          name: Run Test Coverage
+          command: npm test -- --coverage
+      - run:
           name: Build React App
           command: npm run build
       - save_cache:
@@ -29,7 +35,7 @@ workflows:
   build-deploy:
     jobs:
       - build
-          # filters:
-          #   branches:
-          #     only:
-          #       - main
+        # filters:
+        #   branches:
+        #     only:
+        #       - main
