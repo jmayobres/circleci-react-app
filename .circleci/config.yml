@@ -4,15 +4,16 @@ orbs:
 jobs:
   test:
     executor: node/default
-    working_directory: /home/circleci/project/client
+    working_directory: ~/project/client
     steps:
       - checkout
-          path: /home/circleci/project
+
       - node/install-packages:
           # cache-path: ~/project/client/node_modules
-          # app-dir: "/home/circleci/project/client"
+          app-dir: ~/project/client
           override-ci-command: npm install
       - run:
+          path: ~/project/client
           # app-dir: "/home/circleci/project/client"
           command: |
             npm test
