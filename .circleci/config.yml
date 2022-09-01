@@ -26,6 +26,11 @@ jobs:
           command: |
             npm run build
           name: build
+      - store_artifacts:
+        path: /tmp/art-1
+        destination: artifact-file
+      - store_artifacts:
+        path: /tmp/artifacts
 
 workflows:
   test_my_app:
