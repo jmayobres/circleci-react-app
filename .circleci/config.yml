@@ -8,11 +8,11 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
-          # cache-path: ~/project/client/node_modules
-          app-dir: "/home/circleci/project/client"
+          cache-path: ~/project/client/node_modules
+          # app-dir: "/home/circleci/project/client"
           override-ci-command: npm install
       - run:
-          app-dir: "/home/circleci/project/client"
+          # app-dir: "/home/circleci/project/client"
           command: |
             npm test
           name: Test
