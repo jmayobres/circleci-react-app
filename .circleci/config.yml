@@ -33,4 +33,5 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          working_directory: ~/project/client
           component: true
