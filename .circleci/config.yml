@@ -1,6 +1,7 @@
 version: "2.1"
 orbs:
   node: circleci/node@5.0.2
+  cypress: cypress-io/cypress@2.2.0
 jobs:
   test:
     executor: node/default
@@ -23,9 +24,13 @@ jobs:
           path: ~/project/client
           command: |
             npm run build
-          name: build
+          name: Build
 
 workflows:
   test_my_app:
     jobs:
       - test
+  build:
+    jobs:
+      - cypress/run:
+          component: true
