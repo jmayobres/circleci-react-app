@@ -34,4 +34,5 @@ workflows:
     jobs:
       - cypress/run:
           working_directory: ~/project/client
+          cache-key: 'cache-{{ arch }}-{{ .Branch }}-{{ checksum "client/package.json" }}'
           component: true
