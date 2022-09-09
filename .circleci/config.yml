@@ -9,6 +9,7 @@ jobs:
     steps:
       - checkout
       - node/install-packages:
+          cache-key: 'cache-{{ arch }}-{{ .Branch }}-{{ checksum "client/package.json" }}'
           cache-path: ~/project/client/node_modules
           app-dir: ~/project/client
           override-ci-command: npm install
